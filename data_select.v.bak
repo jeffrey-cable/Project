@@ -1,0 +1,32 @@
+//data_select
+
+module data_select(
+
+	input wire [1:0]SEL,
+	
+	input wire [31:0]RAM,
+	input wire [31:0]ROM,
+	input wire [31:0]REG,
+	
+	input wire [4:0]RAM_SW,
+	input wire [4:0]ROM_SW,
+	input wire [4:0]REG_SW,
+	
+	output reg [31:0]DATA,
+	output reg [31:0]MEM,
+	
+);
+
+	
+
+	always @ (SEL)
+			case (in)  //abcdefg
+			0:
+				begin
+					DATA[31:0] = REG[31:0];
+					MEM[31:0] = 4 * REG_SW;
+				end ;
+			
+			1: out=7'b11111001;
+			2: out=7'b0100100;
+		endcase 
