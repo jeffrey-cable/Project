@@ -1,0 +1,32 @@
+//controller.v
+
+module controller(
+	input wire instruction[31:0],
+	input wire zero,
+	
+	output reg MUX[31:0],
+	output reg ALU[4:0],
+	output reg PIPELINE[1:0]);
+	
+	wire f_code[5:0] = instruction[31:26];
+	wire op_code[5:0] = instruction[5:0];
+	
+		always @(posedge CLOCK) begin
+			case (SEL) 
+			0:
+				begin
+					DATA[31:0] = REG[31:0];
+					MEM[31:0] = REG_SW;
+				end
+			
+			1: begin
+					DATA[31:0] = RAM[31:0];
+					MEM[31:0] = 4 * RAM_SW;
+				end
+			
+			2: begin
+					DATA[31:0] = ROM[31:0];
+					MEM[31:0] = 4 * ROM_SW;
+				end
+		endcase
+	end

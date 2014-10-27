@@ -1,5 +1,5 @@
 Fitter report for lab_4_2
-Tue Oct 21 15:57:30 2014
+Mon Oct 27 14:00:05 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Tue Oct 21 15:57:30 2014           ;
+; Fitter Status                      ; Successful - Mon Oct 27 14:00:05 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; lab_4_2                                         ;
 ; Top-level Entity Name              ; top                                             ;
@@ -89,10 +89,10 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting                        ; Default Value                  ;
 +----------------------------------------------------------------------------+--------------------------------+--------------------------------+
 ; Device                                                                     ; EP2C35F672C6                   ;                                ;
+; Use smart compilation                                                      ; On                             ; Off                            ;
 ; Minimum Core Junction Temperature                                          ; 0                              ;                                ;
 ; Maximum Core Junction Temperature                                          ; 85                             ;                                ;
 ; Fit Attempts to Skip                                                       ; 0                              ; 0.0                            ;
-; Use smart compilation                                                      ; Off                            ; Off                            ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                             ; On                             ;
 ; Enable compact report table                                                ; Off                            ; Off                            ;
 ; Auto Merge PLLs                                                            ; On                             ; On                             ;
@@ -523,7 +523,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/Jeffrey Cable/Desktop/ECE473/LAB_FOUR_2/output_files/lab_4_2.pin.
+The pin-out file can be found in C:/Users/Jeffrey Cable/Desktop/ECE473/Project/output_files/lab_4_2.pin.
 
 
 +-------------------------------------------------------------------------+
@@ -3505,7 +3505,7 @@ Info (170195): Router estimated average interconnect usage is 4% of the availabl
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:07
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 3.12 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 3.09 seconds.
 Info (306004): Started post-fitting delay annotation
 Warning (306006): Found 69 output pins without output pin load capacitance assignment
     Info (306007): Pin "HEX0[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
@@ -3584,17 +3584,17 @@ Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:03
 Info (176045): Design uses memory blocks. Violating setup or hold times of memory block address registers for either read or write operations could cause memory contents to be corrupted. Make sure that all memory block address registers meet the setup and hold time requirements.
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
-Info (144001): Generated suppressed messages file C:/Users/Jeffrey Cable/Desktop/ECE473/LAB_FOUR_2/output_files/lab_4_2.fit.smsg
+Info (144001): Generated suppressed messages file C:/Users/Jeffrey Cable/Desktop/ECE473/Project/output_files/lab_4_2.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 340 warnings
-    Info: Peak virtual memory: 703 megabytes
-    Info: Processing ended: Tue Oct 21 15:57:31 2014
+    Info: Peak virtual memory: 708 megabytes
+    Info: Processing ended: Mon Oct 27 14:00:06 2014
     Info: Elapsed time: 00:00:30
-    Info: Total CPU time (on all processors): 00:00:30
+    Info: Total CPU time (on all processors): 00:00:29
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/Jeffrey Cable/Desktop/ECE473/LAB_FOUR_2/output_files/lab_4_2.fit.smsg.
+The suppressed messages can be found in C:/Users/Jeffrey Cable/Desktop/ECE473/Project/output_files/lab_4_2.fit.smsg.
 
 
