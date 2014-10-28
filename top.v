@@ -32,6 +32,13 @@ module top(
 	wire [31:0]RAM_DATA;		//Memory Outputs
 	wire [31:0]ROM_DATA;
 	
+	wire [4:0]RD_SEL;			//Destination Register Selection
+	
+	wire [31:0]CONTROL;	//MUX Control Signals
+	
+	wire [4:0]ALU_CONTROL;	//ALU Control Signals
+	
+	
 	reg [31:0]PC;				//Instruction Memory Address
 	
 	wire [31:0]IF_ID_OUT;	//Intruction Memory Output
@@ -42,13 +49,17 @@ module top(
 	wire [31:0]ID_EX_D1;		//ID_EX Register Outputs
 	wire [31:0]ID_EX_D2;
 	wire [4:0]ID_EX_RD;
+	wire [31:0]ID_EX_ALU_Control;
+	wire [31:0]ID_EX_Control;
 	
 	wire [31:0]EX_MEM_D1;	//EX_MEM Register Outputs
 	wire [31:0]EX_MEM_D2;
-	wire [31:0]EX_MEM_RD;
+	wire [4:0]EX_MEM_RD;
+	wire [31:0]EX_MEM_Control;
 	
 	wire [31:0]MEM_WB_D2;	//MEM_WB Register Outputs
-	wire [31:0]MEM_WB_RD;
+	wire [4:0]MEM_WB_RD;
+	wire [31:0]MEM_WB_Control;
 	
 	wire [31:0]alu_out;
 	
@@ -98,9 +109,24 @@ module top(
 	IF_ID(
 		CLOCK,
 		ROM_DATA,
-		IF_ID_OUT);
+		IF_ID_OUT
+	);
 	
-		
+	controller(
+		IF_ID_OUT,
+		,				
+		CONTROL,		
+		ALU_CONTROL	
+	);
+	
+	one_bit_mux(				// Destination Register Selection
+		CLOCK,
+		IF_ID_OUT[15:11],
+		IF_ID_OUT[20:16],
+		RD_SEL
+	);
+	
+	
 	reg_file(
 		CLOCK,			//clock
 		KEY[0], 			//reset 
@@ -120,10 +146,14 @@ module top(
 		CLOCK,
 		REG_FILE_D1,
 		REG_FILE_D2,
-		IF_ID_OUT[15:11],
+		RD_SEL,
+		CONTROL,
+		ALU_CONTROL,
 		ID_EX_D1,
 		ID_EX_D2,
-		ID_EX_RD
+		ID_EX_RD,
+		ID_EX_Control,
+		ID_EX_ALU_Control
 	);
 	
 	alu(
@@ -137,9 +167,11 @@ module top(
 		ID_EX_D1,	//not sure whats meant to go here
 		alu_out,
 		ID_EX_RD,
+		ID_EX_Control,
 		EX_MEM_D1,
 		EX_MEM_D2,
-		EX_MEM_RD
+		EX_MEM_RD,
+		EX_MEM_Control
 	);
 	
 	data_memory(
@@ -154,8 +186,10 @@ module top(
 		CLOCK,
 		EX_MEM_D2,
 		EX_MEM_RD,
+		EX_MEM_Control,
 		MEM_WB_D2,
-		MEM_WB_RD
+		MEM_WB_RD,
+		MEM_WB_Control
 	);
 
 	CLK_CNT(

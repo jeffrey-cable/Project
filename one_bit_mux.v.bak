@@ -1,0 +1,20 @@
+//one_bit_mux
+
+module one_bit_mux(
+	input wire [31:0]zero,
+	input wire [31:0]one,
+	input wire sel,
+	
+	output reg [31:0]result);
+	
+	always 
+		begin
+			if (sel == 0) begin
+				result = zero;
+			end
+			
+			else begin
+				result = one;
+			end
+		end
+end module

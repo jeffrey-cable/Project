@@ -1,19 +1,19 @@
 //controller.v
 
 module controller(
-	//input wire CLOCK,
 	input wire [31:0]instruction,
 	input wire zero,
 	
 	output reg [31:0]MUX,
-	output reg [4:0]ALU,
-	output reg REG_W,
-	output reg MEM_W,
-	output reg DEST);
+	output reg [4:0]ALU);
 	
-	integer f_code = instruction[31:26];
-	integer op_code = instruction[5:0];
+	integer f_code;
+	integer op_code;
 	
+	always @(instruction) begin
+		f_code = instruction[31:26];
+		op_code = instruction[5:0];
+		end
 	
 	always
 		begin
@@ -22,11 +22,7 @@ module controller(
 					case (op_code) 
 					001100:	// andi
 						begin
-							ALU = 0;
-							MEM_W = 0;
-							REG_W = 1;
-							DEST = 1;
-							MUX = 0;
+							//place holder
 						end
 					
 					001101:	// ori
@@ -90,7 +86,7 @@ module controller(
 					case (f_code)
 					100000:	// add
 						begin
-							//place holder
+
 						end
 					100001:	// addu
 						begin
