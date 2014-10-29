@@ -14,6 +14,8 @@ module top(
 	output wire [6:0]HEX6,
 	output wire [6:0]HEX7,
 	
+	output wire [17:0]LEDR,
+	
 	output wire LCD_ON,
 	output wire LCD_BLON,
 	output reg [7:0]LCD_DATA,
@@ -34,12 +36,12 @@ module top(
 	
 	wire [4:0]RD_SEL;			//Destination Register Selection
 	
-	wire [31:0]CONTROL;	//MUX Control Signals
-	
+	wire [31:0]Initial_CONTROL;	//MUX Control Signals
+	wire [31:0]CONTROL;
 	wire [4:0]ALU_CONTROL;	//ALU Control Signals
 	
 	
-	reg [31:0]PC;				//Instruction Memory Address
+	wire [31:0]PC;				//Instruction Memory Address
 	
 	wire [31:0]IF_ID_OUT;	//Intruction Memory Output
 	
@@ -63,12 +65,13 @@ module top(
 	
 	wire [31:0]alu_out;
 	
+	wire PC_Hazard;
 	
-	initial PC = 32'h00400000 - 4;
 	
 	assign LCD_ON = 1'b1;
 	assign LCD_BLON = 1'b1;
-	
+	assign LEDR[1] = Initial_CONTROL[1];
+	assign LEDR[2] = CONTROL[1];
 	wire [31:0] LCD_DATA_1;
 	wire [31:0] LCD_DATA_2;
 	
@@ -92,14 +95,13 @@ module top(
 			end
 		end
 		
-		always @(posedge CLOCK) begin
-			if (KEY[0] == 1'b0) begin
-				PC <= -4;
-			end else begin
-				PC <= (PC + 4);
-			end
-		end
-		
+	pc_controller(
+		CLOCK,
+		KEY[0],
+		PC_Hazard,
+		PC
+	);
+	
 	instr_memory(
 		PC[4:0],
 		NEG_CLOCK,
@@ -112,15 +114,31 @@ module top(
 		IF_ID_OUT
 	);
 	
+	hazard_detection_unit(
+		CLOCK,
+		IF_ID_OUT,
+		Control_mux,
+		PC_Hazard
+	);
+	
+	
 	controller(
+		CLOCK,
 		IF_ID_OUT,
 		,				
-		CONTROL,		
+		Initial_CONTROL,		
 		ALU_CONTROL	
 	);
 	
+	one_bit_mux(				// Hazard Control Signal Deletion
+		Control_mux,
+		32'b0,
+		Initial_CONTROL,
+		CONTROL
+	);
+	
 	one_bit_mux(				// Destination Register Selection
-		CLOCK,
+		CONTROL[0],
 		IF_ID_OUT[15:11],
 		IF_ID_OUT[20:16],
 		RD_SEL
@@ -130,7 +148,7 @@ module top(
 	reg_file(
 		CLOCK,			//clock
 		KEY[0], 			//reset 
-		1'b1, 					//write enable
+		MEM_WB_Control[1], 					//write enable
 		, 					//clock_debug
 		IF_ID_OUT[25:21], 					//read_address_1
 		IF_ID_OUT[20:16], 					//read_address_2
@@ -178,7 +196,7 @@ module top(
 		EX_MEM_D2,
 		NEG_CLOCK,
 		EX_MEM_D1,//data
-		1'b0,//write enable
+		EX_MEM_Control[2],//write enable
 		RAM_DATA[31:0]
 	);
 
@@ -219,8 +237,8 @@ module top(
 	LCD_Display(
 		1'b1,
 		CLOCK_50,
-		LCD_DATA_1,
-		LCD_DATA_2,
+		MEM_WB_D2,
+		Initial_CONTROL,
 		LCD_RS,
 		LCD_EN,
 		LCD_RW,

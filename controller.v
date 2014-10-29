@@ -1,16 +1,17 @@
 //controller.v
 
 module controller(
+	input wire CLOCK,
 	input wire [31:0]instruction,
 	input wire zero,
 	
-	output reg [31:0]MUX,
+	output reg [31:0]Control,
 	output reg [4:0]ALU);
 	
-	integer f_code;
-	integer op_code;
+	reg [5:0]f_code;
+	reg [5:0]op_code;
 	
-	always @(instruction) begin
+	always @(negedge CLOCK) begin
 		f_code = instruction[31:26];
 		op_code = instruction[5:0];
 		end
@@ -86,7 +87,14 @@ module controller(
 					case (f_code)
 					100000:	// add
 						begin
-
+							Control[0] = 1'b0;		// dest rerg
+							Control[1] = 1;		// reg w
+							Control[2] = 1'b0;		// mem w
+							Control[3] = 1'b1;		// wb mux
+							Control[5:4] = 2'b0;		// alu mux 1
+							Control[7:6] = 2'b0;		// alu mux 2
+							
+							ALU[4:0] = 5'b00000;		// alu control signal
 						end
 					100001:	// addu
 						begin
@@ -118,7 +126,14 @@ module controller(
 						end
 					000000:	// sll & no_op
 						begin
-							//place holder
+							Control[0] = 1'b0;		// dest rerg
+							Control[1] = 1'b0;		// reg w
+							Control[2] = 1'b0;		// mem w
+							Control[3] = 1'b0;		// wb mux
+							Control[5:4] = 2'b0;		// alu mux 1
+							Control[7:6] = 2'b0;		// alu mux 2
+							
+							ALU[4:0] = 5'b00001;		// alu control signal
 						end
 					000010:	// srl
 						begin

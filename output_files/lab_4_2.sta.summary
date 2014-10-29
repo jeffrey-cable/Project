@@ -3,194 +3,194 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'CLOCK_50'
-Slack : -7.066
-TNS   : -141.974
+Slack : -5.346
+TNS   : -119.870
 
 Type  : Slow Model Setup 'KEY[1]'
-Slack : -4.883
-TNS   : -4719.260
+Slack : -2.164
+TNS   : -122.674
 
-Type  : Slow Model Setup 'clk_div:comb_5|clock_100Khz_reg'
-Slack : -0.239
-TNS   : -0.311
+Type  : Slow Model Setup 'clk_div:comb_7|clock_100Khz_reg'
+Slack : -0.262
+TNS   : -0.334
 
-Type  : Slow Model Setup 'clk_div:comb_5|clock_1Khz_reg'
-Slack : -0.082
-TNS   : -0.163
+Type  : Slow Model Setup 'clk_div:comb_7|clock_10Khz_reg'
+Slack : -0.242
+TNS   : -0.314
 
-Type  : Slow Model Setup 'clk_div:comb_5|clock_10Khz_reg'
+Type  : Slow Model Setup 'clk_div:comb_7|clock_1Mhz_reg'
 Slack : -0.072
-TNS   : -0.109
+TNS   : -0.152
 
-Type  : Slow Model Setup 'clk_div:comb_5|clock_10Hz_reg'
-Slack : -0.070
-TNS   : -0.147
-
-Type  : Slow Model Setup 'clk_div:comb_5|clock_100hz_reg'
+Type  : Slow Model Setup 'clk_div:comb_7|clock_100hz_reg'
 Slack : -0.069
-TNS   : -0.145
+TNS   : -0.149
 
-Type  : Slow Model Setup 'clk_div:comb_5|clock_1Mhz_reg'
-Slack : -0.069
-TNS   : -0.137
+Type  : Slow Model Setup 'clk_div:comb_7|clock_10Hz_reg'
+Slack : -0.062
+TNS   : -0.131
 
-Type  : Slow Model Hold 'KEY[1]'
-Slack : -0.212
-TNS   : -0.867
+Type  : Slow Model Setup 'clk_div:comb_7|clock_1Khz_reg'
+Slack : -0.062
+TNS   : -0.127
 
 Type  : Slow Model Hold 'CLOCK_50'
-Slack : -0.021
-TNS   : -0.021
+Slack : 0.117
+TNS   : 0.000
 
-Type  : Slow Model Hold 'clk_div:comb_5|clock_100Khz_reg'
+Type  : Slow Model Hold 'clk_div:comb_7|clock_100Khz_reg'
 Slack : 0.391
 TNS   : 0.000
 
-Type  : Slow Model Hold 'clk_div:comb_5|clock_100hz_reg'
+Type  : Slow Model Hold 'clk_div:comb_7|clock_100hz_reg'
 Slack : 0.391
 TNS   : 0.000
 
-Type  : Slow Model Hold 'clk_div:comb_5|clock_10Hz_reg'
+Type  : Slow Model Hold 'clk_div:comb_7|clock_10Hz_reg'
 Slack : 0.391
 TNS   : 0.000
 
-Type  : Slow Model Hold 'clk_div:comb_5|clock_10Khz_reg'
+Type  : Slow Model Hold 'clk_div:comb_7|clock_10Khz_reg'
 Slack : 0.391
 TNS   : 0.000
 
-Type  : Slow Model Hold 'clk_div:comb_5|clock_1Khz_reg'
+Type  : Slow Model Hold 'clk_div:comb_7|clock_1Khz_reg'
 Slack : 0.391
 TNS   : 0.000
 
-Type  : Slow Model Hold 'clk_div:comb_5|clock_1Mhz_reg'
+Type  : Slow Model Hold 'clk_div:comb_7|clock_1Mhz_reg'
 Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Hold 'KEY[1]'
+Slack : 0.531
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'KEY[1]'
-Slack : -2.000
-TNS   : -1901.524
+Slack : -1.423
+TNS   : -210.524
 
 Type  : Slow Model Minimum Pulse Width 'CLOCK_50'
 Slack : -1.380
 TNS   : -76.380
 
-Type  : Slow Model Minimum Pulse Width 'clk_div:comb_5|clock_100Khz_reg'
+Type  : Slow Model Minimum Pulse Width 'clk_div:comb_7|clock_100Khz_reg'
 Slack : -0.500
 TNS   : -4.000
 
-Type  : Slow Model Minimum Pulse Width 'clk_div:comb_5|clock_100hz_reg'
+Type  : Slow Model Minimum Pulse Width 'clk_div:comb_7|clock_100hz_reg'
 Slack : -0.500
 TNS   : -4.000
 
-Type  : Slow Model Minimum Pulse Width 'clk_div:comb_5|clock_10Hz_reg'
+Type  : Slow Model Minimum Pulse Width 'clk_div:comb_7|clock_10Hz_reg'
 Slack : -0.500
 TNS   : -4.000
 
-Type  : Slow Model Minimum Pulse Width 'clk_div:comb_5|clock_10Khz_reg'
+Type  : Slow Model Minimum Pulse Width 'clk_div:comb_7|clock_10Khz_reg'
 Slack : -0.500
 TNS   : -4.000
 
-Type  : Slow Model Minimum Pulse Width 'clk_div:comb_5|clock_1Khz_reg'
+Type  : Slow Model Minimum Pulse Width 'clk_div:comb_7|clock_1Khz_reg'
 Slack : -0.500
 TNS   : -4.000
 
-Type  : Slow Model Minimum Pulse Width 'clk_div:comb_5|clock_1Mhz_reg'
+Type  : Slow Model Minimum Pulse Width 'clk_div:comb_7|clock_1Mhz_reg'
 Slack : -0.500
 TNS   : -4.000
 
 Type  : Fast Model Setup 'CLOCK_50'
-Slack : -2.698
-TNS   : -36.692
+Slack : -1.994
+TNS   : -23.721
 
 Type  : Fast Model Setup 'KEY[1]'
-Slack : -1.864
-TNS   : -1632.737
+Slack : -0.979
+TNS   : -32.810
 
-Type  : Fast Model Setup 'clk_div:comb_5|clock_100Khz_reg'
-Slack : 0.432
+Type  : Fast Model Setup 'clk_div:comb_7|clock_100Khz_reg'
+Slack : 0.419
 TNS   : 0.000
 
-Type  : Fast Model Setup 'clk_div:comb_5|clock_1Khz_reg'
-Slack : 0.496
+Type  : Fast Model Setup 'clk_div:comb_7|clock_10Khz_reg'
+Slack : 0.431
 TNS   : 0.000
 
-Type  : Fast Model Setup 'clk_div:comb_5|clock_10Hz_reg'
-Slack : 0.504
+Type  : Fast Model Setup 'clk_div:comb_7|clock_1Mhz_reg'
+Slack : 0.506
 TNS   : 0.000
 
-Type  : Fast Model Setup 'clk_div:comb_5|clock_10Khz_reg'
-Slack : 0.504
-TNS   : 0.000
-
-Type  : Fast Model Setup 'clk_div:comb_5|clock_100hz_reg'
+Type  : Fast Model Setup 'clk_div:comb_7|clock_100hz_reg'
 Slack : 0.508
 TNS   : 0.000
 
-Type  : Fast Model Setup 'clk_div:comb_5|clock_1Mhz_reg'
-Slack : 0.508
+Type  : Fast Model Setup 'clk_div:comb_7|clock_10Hz_reg'
+Slack : 0.509
+TNS   : 0.000
+
+Type  : Fast Model Setup 'clk_div:comb_7|clock_1Khz_reg'
+Slack : 0.510
+TNS   : 0.000
+
+Type  : Fast Model Hold 'CLOCK_50'
+Slack : -0.023
+TNS   : -0.032
+
+Type  : Fast Model Hold 'clk_div:comb_7|clock_100Khz_reg'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'clk_div:comb_7|clock_100hz_reg'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'clk_div:comb_7|clock_10Hz_reg'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'clk_div:comb_7|clock_10Khz_reg'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'clk_div:comb_7|clock_1Khz_reg'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'clk_div:comb_7|clock_1Mhz_reg'
+Slack : 0.215
 TNS   : 0.000
 
 Type  : Fast Model Hold 'KEY[1]'
-Slack : -0.543
-TNS   : -2.595
-
-Type  : Fast Model Hold 'CLOCK_50'
-Slack : -0.088
-TNS   : -0.102
-
-Type  : Fast Model Hold 'clk_div:comb_5|clock_100Khz_reg'
-Slack : 0.215
-TNS   : 0.000
-
-Type  : Fast Model Hold 'clk_div:comb_5|clock_100hz_reg'
-Slack : 0.215
-TNS   : 0.000
-
-Type  : Fast Model Hold 'clk_div:comb_5|clock_10Hz_reg'
-Slack : 0.215
-TNS   : 0.000
-
-Type  : Fast Model Hold 'clk_div:comb_5|clock_10Khz_reg'
-Slack : 0.215
-TNS   : 0.000
-
-Type  : Fast Model Hold 'clk_div:comb_5|clock_1Khz_reg'
-Slack : 0.215
-TNS   : 0.000
-
-Type  : Fast Model Hold 'clk_div:comb_5|clock_1Mhz_reg'
-Slack : 0.215
+Slack : 0.243
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'KEY[1]'
-Slack : -2.000
-TNS   : -1901.524
+Slack : -1.423
+TNS   : -210.524
 
 Type  : Fast Model Minimum Pulse Width 'CLOCK_50'
 Slack : -1.380
 TNS   : -76.380
 
-Type  : Fast Model Minimum Pulse Width 'clk_div:comb_5|clock_100Khz_reg'
+Type  : Fast Model Minimum Pulse Width 'clk_div:comb_7|clock_100Khz_reg'
 Slack : -0.500
 TNS   : -4.000
 
-Type  : Fast Model Minimum Pulse Width 'clk_div:comb_5|clock_100hz_reg'
+Type  : Fast Model Minimum Pulse Width 'clk_div:comb_7|clock_100hz_reg'
 Slack : -0.500
 TNS   : -4.000
 
-Type  : Fast Model Minimum Pulse Width 'clk_div:comb_5|clock_10Hz_reg'
+Type  : Fast Model Minimum Pulse Width 'clk_div:comb_7|clock_10Hz_reg'
 Slack : -0.500
 TNS   : -4.000
 
-Type  : Fast Model Minimum Pulse Width 'clk_div:comb_5|clock_10Khz_reg'
+Type  : Fast Model Minimum Pulse Width 'clk_div:comb_7|clock_10Khz_reg'
 Slack : -0.500
 TNS   : -4.000
 
-Type  : Fast Model Minimum Pulse Width 'clk_div:comb_5|clock_1Khz_reg'
+Type  : Fast Model Minimum Pulse Width 'clk_div:comb_7|clock_1Khz_reg'
 Slack : -0.500
 TNS   : -4.000
 
-Type  : Fast Model Minimum Pulse Width 'clk_div:comb_5|clock_1Mhz_reg'
+Type  : Fast Model Minimum Pulse Width 'clk_div:comb_7|clock_1Mhz_reg'
 Slack : -0.500
 TNS   : -4.000
 
