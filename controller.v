@@ -5,6 +5,7 @@ module controller(
 	input wire [31:0]instruction,
 	input wire zero,
 	
+	
 	output reg [31:0]Control,
 	output reg [4:0]ALU);
 	
@@ -12,8 +13,9 @@ module controller(
 	reg [5:0]op_code;
 	
 	always @(CLOCK) begin
-		op_code = instruction[31:26];
-		f_code = instruction[5:0];
+		op_code <= instruction[31:26];
+		f_code <= instruction[5:0];
+//		shamt <= instruction[10:6];	// need to send this with ALUsrc (sll,srl,sra)
 		end
 	
 	always
@@ -99,30 +101,37 @@ module controller(
 					6'b100001:	// addu
 						begin
 							//place holder
+							ALU[4:0] <= 5'b00001;		// alu control signal
 						end
 					6'b100010:	// sub
 						begin
 							//place holder
+							ALU[4:0] <= 5'b00010;		// alu control signal
 						end
 					6'b100011:	// subu
 						begin
 							//place holder
+							ALU[4:0] <= 5'b00011;		// alu control signal
 						end
 					6'b100100:	// and
 						begin
 							//place holder
+							ALU[4:0] <= 5'b00100;		// alu control signal
 						end
 					6'b100101:	// or
 						begin
 							//place holder
+							ALU[4:0] <= 5'b00101;		// alu control signal
 						end
 					6'b100111:	// nor
 						begin
 							//place holder
+							ALU[4:0] <= 5'b00110;		// alu control signal
 						end
 					6'b101010:	// slt
 						begin
 							//place holder
+							ALU[4:0] <= 5'b00111;		// alu control signal
 						end
 					6'b000000:	// sll & no_op
 						begin
@@ -133,23 +142,27 @@ module controller(
 							Control[5:4] <= 2'b0;		// alu mux 1
 							Control[7:6] <= 2'b0;		// alu mux 2
 							
-							ALU[4:0] <= 5'b00001;		// alu control signal
+							ALU[4:0] <= 5'b01000;		// alu control signal
 						end
 					6'b000010:	// srl
 						begin
 							//place holder
+							ALU[4:0] <= 5'b01001;		// alu control signal
 						end
 					6'b000011:	// sra
 						begin
 							//place holder
+							ALU[4:0] <= 5'b01010;		// alu control signal
 						end
 					6'b001000:	// jr
 						begin
 							//place holder
+							ALU[4:0] <= 5'b01011;		// alu control signal
 						end
 					6'b011000:	// mul
 						begin
 							//place holder
+							ALU[4:0] <= 5'b00000;		// alu control signal
 						end
 				endcase		
 			end
